@@ -4,4 +4,4 @@ Démo => http://fakenews.planetcode.fr
 
 Codepen => https://codepen.io/jend-codes
 
-![myCharts](http://fakenews.planetcode.fr/FaviconFakeNewspaper.png)
+![myCharts](http://fakenews.planetcode.fr/CapchaFakeNews.JPG)
