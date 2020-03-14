@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang='fr'>
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="description" content="Fake News">
+    <meta content='width=device-width, initial-scale=1.0' name='viewport' />
+
+    <title>Fake news & Fact checking</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="FaviconFakeNewspaper.png" />
+
+    <!-- Polices -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,700,900&display=swap" rel="stylesheet">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,700,900&display=swap');
+
+        body {
+            font-family: 'Playfair Display', serif;
+            color: black;
+            margin: 0 auto;
+            overflow-x: hidden;
+            text-align: center;
+            background-color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .navbar {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            height: 78px;
+            background-color: #ffffff;
+        }
+
+        @media all and (max-width: 700px) {
+            .navbar {
+                height: 70px;
+            }
+        }
+
+        .logo-box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: center;
+            z-index: 999;
+            border: 0px solid black;
+            width: 100%;
+            height: 70px;
+        }
+
+        .the-logo {
+            font-size: 60px;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #2f2f2f;
+            margin: 10px;
+            border: 0px solid black;
+        }
+
+        .logo-subtitle {
+            color: black;
+            text-transform: uppercase;
+            margin-top: 100px;
+            border-bottom: 2px solid #5c5c5c;
+            border-top: 2px solid #5c5c5c;
+            padding: 12px 0 12px 0;
+            letter-spacing: 0px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        img {
+            filter: grayscale(100%)
+        }
+
+        /* Newspaper Template */
+        .content {
+            font-size: 0;
+            line-height: 0;
+            word-spacing: -.31em;
+            display: inline-block;
+            margin: 30px 2% 0 2%;
+        }
+
+        .collumns {}
+
+        .collumn {
+            text-align: left;
+            font-size: 14px;
+            line-height: 20px;
+            width: 17.5%;
+            display: inline-block;
+            padding: 0 1.2% 0 1.2%;
+            vertical-align: top;
+            margin-bottom: 50px;
+            transition: all .7s;
+        }
+
+        .collumn+.collumn {
+            border-left: 1px solid #2f2f2f;
+        }
+
+        .collumn .headline {
+            text-align: center;
+            line-height: normal;
+            font-family: 'Playfair Display', serif;
+            display: block;
+            margin: 0 auto;
+            letter-spacing: 0px;
+        }
+
+        .collumn .headline.hl1 {
+            font-weight: 700;
+            font-size: 30px;
+            text-transform: uppercase;
+            padding: 10px 0 10px 0;
+
+        }
+
+        .collumn .headline.hl2 {
+            font-weight: 400;
+            font-style: italic;
+            font-size: 24px;
+            box-sizing: border-box;
+            padding: 10px 0 10px 0;
+        }
+
+        .collumn .headline.hl2:before {
+            border-top: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 7px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .collumn .headline.hl2:after {
+            border-bottom: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 13px;
+            display: block;
+            margin: 0 auto;
+
+        }
+
+        .collumn .headline.hl3 {
+            font-weight: 400;
+            font-style: italic;
+            font-size: 32px;
+            box-sizing: border-box;
+            padding: 10px 0 10px 0;
+        }
+
+        .collumn .headline.hl4 {
+            font-weight: 400;
+            font-size: 18px;
+            box-sizing: border-box;
+            padding: 10px 0 10px 0;
+        }
+
+        .collumn .headline.hl4:before {
+            border-top: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 7px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .collumn .headline.hl4:after {
+            border-bottom: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 10px;
+            display: block;
+            margin: 0 auto;
+
+        }
+
+        .collumn .headline.hl5 {
+            font-weight: 400;
+            font-size: 22px;
+            text-transform: uppercase;
+            font-style: italic;
+            box-sizing: border-box;
+            padding: 10px 0 10px 0;
+        }
+
+        .collumn .headline.hl6 {
+            font-weight: 400;
+            font-size: 18px;
+            box-sizing: border-box;
+            padding: 10px 0 10px 0;
+        }
+
+        .collumn .headline.hl6:before {
+            border-top: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 7px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .collumn .headline.hl6:after {
+            border-bottom: 1px solid #2f2f2f;
+            content: '';
+            width: 100px;
+            height: 10px;
+            display: block;
+            margin: 0 auto;
+
+        }
+
+        .collumn .headline.hl7 {
+            font-weight: 700;
+            font-size: 12px;
+            box-sizing: border-box;
+            display: block;
+            padding: 10px 0 10px 0;
+        }
+
+        .collumn .headline.hl8 {
+            font-weight: 700;
+            font-size: 12px;
+            box-sizing: border-box;
+            padding: 10px 0 10px 0;
+        }
+
+        .collumn .headline.hl9 {
+            font-weight: 700;
+            font-size: 12px;
+            box-sizing: border-box;
+            padding: 10px 0 10px 0;
+        }
+
+        .collumn .headline.hl10 {
+            font-weight: 700;
+            font-size: 12px;
+            box-sizing: border-box;
+            padding: 10px 0 10px 0;
+        }
+
+        .hideBr {
+            display: none;
+        }
+
+        .simple-line {
+            width: 25%;
+        }
+
+        /* Newspaper MEDIAQUERIES */
+
+        @media only all and (max-width: 1200px) {
+            .collumn {
+                width: 31%;
+            }
+        }
+
+        @media only all and (max-width: 900px) {
+            .collumn {
+                width: 47%;
+            }
+        }
+
+        @media only all and (max-width: 600px) {
+            .collumn {
+                width: 100%;
+            }
+            .collumn+.collumn {
+                border-left: none;
+                border-bottom: 0px solid #dcdcdc;
+            }
+            .hideBr {
+                display: block;
+            }
+            .mobile-hidden {
+                display: none;
+            }
+            .the-logo {
+                font-size: 40px;
+                margin: 20px;
+            }
+            .logo-subtitle {
+                font-size: 14px;
+            }
+            .collumn .headline.hl3 {
+                font-size: 26px;
+            }
+            .collumn .headline.hl1 {
+                font-size: 24px;
+            }
+            .simple-line {
+                display: none;
+            }
+        }
+
+        @media only all and (max-width: 500px) {}
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+    </div>
+
+    <!-- Logo Box -->
+    <div class="logo-box">
+        <a href="http://fakenews.planetcode.fr" style="text-decoration:none;">
+            <p class="the-logo">FAKE NEWS</p>
+        </a>
+    </div>
+
+    <p class="logo-subtitle">Le faux journal des fausses nouvelles</p>
+
+    <!-- Newspaper responsive content -->
+    <div class="content">
+        <div class="collumns">
+
+            <div class="collumn">
+
+                <div class="head"><span class="headline hl3">Dernières vérifications</span>
+                    <p><span class="headline hl4">Le Monde</span></p>
+                </div>
+
+                <div id="scrap_article0">
+                </div>
+                <br class="hideBr" />
+
+            </div>
+
+            <div class="collumn">
+
+                <div class="head">
+                    <span class="headline hl5">Expertises universitaires</span>
+                    <p><span class="headline hl6">The Conversation</span></p>
+                </div>
+
+                <div id="scrap_article1">
+                </div>
+                <br class="hideBr" />
+
+            </div>
+
+            <div class="collumn">
+
+                <div class="head">
+                    <span class="headline hl1">L'ère de la post-vérité</span>
+                    <p><span class="headline hl2" style="font-size:18px;">France Culture</span></p>
+                </div>
+
+                <div id="scrap_article3">
+                </div>
+                <br class="hideBr" />
+
+            </div>
+
+            <div class="collumn mobile-hidden">
+
+                <div class="head">
+                    <span class="headline hl3">Infox and Co</span>
+                    <p><span class="headline hl4" style="font-size:18px;">Huffington Post</span></p>
+                </div>
+
+                <div id="scrap_article2">
+                </div>
+                <br class="hideBr" />
+
+            </div>
+
+            <div class="collumn">
+                <div class="head">
+                    <span class="headline hl1">Vrai ou fake&#8239;?</span>
+                    <p><span class="headline hl2" style="font-size:24px;">France Info</span></p>
+                </div>
+
+                <div id="scrap_article4">
+                </div>
+                <br class="hideBr" />
+
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <footer>
+        <div style="background:#ffffff;width:100%;height:auto;">
+
+            <br />
+            <hr class="simple-line" />
+
+            <a href="http://portfolio.planetcode.fr" target="_blank" style="text-decoration: none;">
+                <p style="font-weight:500; color:black;font-size:16px;letter-spacing: 1px;">Réalisation</p>
+                <p style="font-weight:500; color:black;font-size:16px;letter-spacing: 1px;">Jean-Eudes Nouaille-Degorce</p>
+                <p style="font-weight:500; color:black;font-size:14px;letter-spacing: 1px;">Développeur Full Stack</p>
+            </a>
+
+            <br />
+            <br />
+
+        </div>
+    </footer>
+
+    <!-- Dernière version du CDN jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        // Prefilter CORS - workaround for cross origin requests
+        $.ajaxPrefilter(function(options) {
+            if (options.crossDomain && jQuery.support.cors) {
+                var http = window.location.protocol === "http:" ? "http:" : "https:";
+                options.url = http + "//cors-anywhere.herokuapp.com/" + options.url;
+            }
+        });
+
+        /* Le Monde */
+        var urlToScrape = "https://www.lemonde.fr/verification/";
+
+        $.ajax({
+            url: urlToScrape,
+            method: "GET"
+        }).done(function(data) {
+            var html = $(data);
+            let output = "";
+
+            var article = html.find(".teaser:lt(9)");
+
+            $.each(article, function(index, value) {
+                
+                const titleSelector = $(value).find('.teaser__title').text();
+
+                const titleForm = '<h3>' + titleSelector + '</h3>';
+
+                const subTitleSelector = $(value).find('.teaser__desc').text();
+
+                const subTitleForm = '<p>' + subTitleSelector + '</p>';
+
+                const linkSrc = $(value).find('.teaser__link').attr('href');
+
+                const newsLink = '<a href="' + linkSrc + '" target="_blank" style="text-decoration:none;color:cornflowerblue;">' + titleForm + "</a>";
+
+                output += newsLink + subTitleForm;
+
+            });
+
+            $("#scrap_article0").append(output);
+
+        });
+
+        /* The Conversation */
+        var urlToScrape1 = "https://theconversation.com/fr/topics/fake-news-38582";
+
+        $.ajax({
+            url: urlToScrape1,
+            method: "GET"
+        }).done(function(data1) {
+            var html1 = $(data1);
+            let output1 = "";
+
+            var article1 = html1.find("article:lt(5)");
+
+            $.each(article1, function(index, value1) {
+
+                const imageSrc1 = $(value1).find('img').attr('data-src');
+
+                const imageForm1 = '<img class="hideImg_TheConversation" src="' + imageSrc1 + '" style="width:100%;" />';
+
+                const titleSelector1 = $(value1).find('h2').text();
+
+                const titleForm1 = '<h3>' + titleSelector1 + '</h3>';
+
+                const subTitleSelector1 = $(value1).find('.content').text();
+
+                const subTitleForm1 = '<p>' + subTitleSelector1 + '</p>';
+
+                const linkSrc1 = $(value1).find('a').attr('href');
+
+                const newsLink1 = '<a href="https://theconversation.com' + linkSrc1 + '" target="_blank" style="text-decoration:none;color:cornflowerblue;">' + titleForm1 + imageForm1 + "</a>";
+
+                output1 += newsLink1 + subTitleForm1;
+
+            });
+
+            $("#scrap_article1").append(output1);
+
+        });
+
+        /* Huffington */
+        var urlToScrape2 = "https://www.huffingtonpost.fr/news/fake-news/";
+
+        $.ajax({
+            url: urlToScrape2,
+            method: "GET"
+        }).done(function(data2) {
+            var html2 = $(data2);
+            let output2 = "";
+
+            var article2 = html2.find(".card__content").slice(14, 23);;
+
+            $.each(article2, function(index, value2) {
+
+                const imageSrc2 = $(value2).find('img').attr('src');
+
+                const imageForm2 = '<img class="hideImg_Huffington" src="' + imageSrc2 + '" style="width:100%;" />';
+
+                const titleSelector2 = $(value2).find('.card__headline').text();
+
+                const titleForm2 = '<h3>' + titleSelector2 + '</h3>';
+
+                const linkSrc2 = $(value2).find('a').attr('href');
+
+                const newsLink2 = '<a href="https://www.huffingtonpost.fr' + linkSrc2 + '" target="_blank" style="text-decoration:none;color:cornflowerblue;">' + titleForm2 + imageForm2 + "</a>";
+
+                output2 += newsLink2;
+
+            });
+
+            $("#scrap_article2").append(output2);
+
+        });
+
+        /* France Culture */
+        var urlToScrape3 = "https://www.franceculture.fr/theme/fake-news";
+
+        $.ajax({
+            url: urlToScrape3,
+            method: "GET"
+        }).done(function(data3) {
+            var html3 = $(data3);
+            let output3 = "";
+
+            var article3 = html3.find(".teaser:lt(11)");
+
+            $.each(article3, function(index, value3) {
+
+                const titleSelector3 = $(value3).find('.teaser-text-title-wrapper').text();
+
+                const titleForm3 = '<h3>' + titleSelector3 + '</h3>';
+
+                const subTitleSelector3 = $(value3).find('.teaser-text-chapo').text();
+
+                const subTitleForm3 = '<p>' + subTitleSelector3 + '</p>';
+
+                const linkSrc3 = $(value3).find('a').attr('href');
+
+                const newsLink3 = '<a href="https://www.franceculture.fr' + linkSrc3 + '" target="_blank" style="text-decoration:none;color:cornflowerblue;">' + titleForm3 + "</a>";
+
+                output3 += newsLink3 + subTitleForm3;
+
+            });
+
+            $("#scrap_article3").append(output3);
+
+        });
+
+        /* France Info */
+        var urlToScrape4 = "https://www.francetvinfo.fr/vrai-ou-fake/";
+
+        $.ajax({
+            url: urlToScrape4,
+            method: "GET"
+        }).done(function(data4) {
+            var html4 = $(data4);
+            let output4 = "";
+
+            var article4 = html4.find(".flowItem:lt(8)");
+
+            // Boucles à l'intérieur de l'article
+            $.each(article4, function(index, value4) {
+
+                const titleSelector4 = $(value4).find('h2.title').text();
+
+                const titleForm4 = '<h3>' + titleSelector4 + '</h3>';
+
+                const subTitleSelector4 = $(value4).find('.description').text();
+
+                const subTitleForm4 = '<p>' + subTitleSelector4 + '</p>';
+
+                const linkSrc4 = $(value4).find('a').attr('href');
+
+                const newsLink4 = '<a href="https://www.francetvinfo.fr' + linkSrc4 + '" target="_blank" style="text-decoration:none;color:cornflowerblue;">' + titleForm4 + "</a>";
+
+                output4 += newsLink4 + subTitleForm4;
+
+            });
+
+            $("#scrap_article4").append(output4);
+
+        });
+
+    </script>
+
+</body>
+
+</html>
